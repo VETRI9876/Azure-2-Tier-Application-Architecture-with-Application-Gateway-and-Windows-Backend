@@ -38,9 +38,9 @@ resource "azurerm_application_gateway" "appgw" {
     protocol            = "Http"
     path                = "/index.html"
     interval            = 30
-    timeout             = 60                 # ✅ Increased timeout
+    timeout             = 60                
     unhealthy_threshold = 3
-    host                = "localhost"        # ✅ Corrected host value
+    host                = "localhost"        
 
     match {
       status_code = ["200", "301", "302", "304"]
@@ -52,9 +52,9 @@ resource "azurerm_application_gateway" "appgw" {
     cookie_based_affinity = "Disabled"
     port                  = 80
     protocol              = "Http"
-    request_timeout       = 60                # ✅ Match probe timeout
+    request_timeout       = 60                
     probe_name            = "default-probe"
-    host_name             = "localhost"       # ✅ Required to match probe host
+    host_name             = "localhost"       
   }
 
   http_listener {
